@@ -1,0 +1,70 @@
+body{
+    margin: 0, 0, 0, 0;
+    background-color: #2f2f2f;
+}
+
+.main{
+    height: 100vh;
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    margin: auto;
+}
+
+.game{
+    display: grid;
+    grid-template-areas: 'red gre'
+    'blu yel';
+    grid-gap: 10px;
+    border: 1px solid #121212;
+    background-color: #121212;
+    border-radius: 100%;
+    width: 700px;
+    height: 700px;
+}
+
+.red{
+    grid-area: red;    
+    background-color: #f45424;
+    border-top-left-radius: 100%;
+    transition: 0.2s;    
+}
+.gre{
+    grid-area: gre;    
+    background-color: #7cbc04;
+    border-top-right-radius: 100%;
+    transition: 0.2s;    
+}
+.blu{
+    grid-area: blu;    
+    background-color: #04a4ec;
+    border-bottom-left-radius: 100%;
+    transition: 0.2s;    
+}
+.yel{
+    grid-area: yel;    
+    background-color: #fcbc04;
+    border-bottom-right-radius: 100%; 
+    transition: 0.2s;   
+}
+
+.red:hover {
+    filter: brightness(120%);
+}
+
+.gre:hover {
+    filter: brightness(120%);
+}
+
+.blu:hover {
+    filter: brightness(120%);
+}
+
+.yel:hover {
+    filter: brightness(120%);
+}
+
+.selected{
+    filter: brightness(150%);
+}
