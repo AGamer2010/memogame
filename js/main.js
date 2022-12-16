@@ -3,16 +3,16 @@ let clickedOrder = []
 let score = 0
 
 /*
-0 red
-1 gre
-2 blu
-3 yel
+0 gre
+1 red
+2 yel
+3 blu
 */
 
-const red = $(".red")
-const gre = $(".gre")
-const blu = $(".blu")
-const yel = $(".yel")
+const gre = document.querySelector('.gre')
+const red = document.querySelector('.red')
+const yel = document.querySelector('.yel')
+const blu = document.querySelector('.blu')
 
 let shuffleOrder = () => {
     let colorOrder = Math.floor(Math.random()*4)
@@ -36,15 +36,63 @@ let lightColor = (element, number) => {
 }
 
 let checkOrder = () => {
-    for(let i in clickedOrder){
-        if(clickedOrder[i] != order[i]){
-            lose()  
+    for (let i in clickedOrder) {
+        if (clickedOrder[i] != order[i]) {
+            lose()
             break
         }
-        if(clickedOrder.length == order.length){
-            alert(`Pontuação: ${score}\nVocê acertou! Iniciando próximo nível`)
-        }
+    }
+    if (clickedOrder.length == order.length) {
+        alert(`Pontuação: ${score}\nVocê acertou! Iniciando próximo nível`)
+        nextLvl()
     }
 }
 
-//parou em 5:42 de parte 4.
+let click = (color) => {
+    clickedOrder[clickedOrder.length] = color
+    createColorElement(color).classList.add('selected')
+
+    setTimeout(() => {
+        createColorElement(color).classList.remove('selected')    
+        checkOrder()
+    }, 250);
+}
+
+let createColorElement = (color) => {
+    if(color == 0){
+        return gre
+    } else if(color == 1){
+        return red
+    } else if(color == 2){
+        return yel
+    } else if(color == 3){
+        return blu
+    }
+}
+
+let nextLvl = () => {
+    score++
+    shuffleOrder()
+}
+
+let lose = () => {
+    alert(`Pontuação: ${score}!\n Você perdeu. Clique em OK para iniciar outro jogo`)
+    order = []
+    clickedOrder = []
+
+    init()
+}    
+
+let init = () => {
+    alert('Bem-vindo ao Michaelsoft Intelligent!')
+    score = 0
+
+    nextLvl()
+}
+
+gre.onclick = () => click(0)
+red.onclick = () => click(1)
+yel.onclick = () => click(2)
+blu.onclick = () => click(3)
+
+init()

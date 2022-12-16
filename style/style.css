@@ -1,6 +1,8 @@
 body{
-    margin: 0, 0, 0, 0;
-    background-color: #2f2f2f;
+    margin: 0;
+    background-color: #fb6c05;
+    font-family: 'Calibri';
+    color: white;
 }
 
 .main{
@@ -10,61 +12,73 @@ body{
     justify-content: center;
     align-items: center;    
     margin: auto;
+    padding: 0;
 }
 
 .game{
     display: grid;
-    grid-template-areas: 'red gre'
-    'blu yel';
+    grid-template-areas: 'gre red'
+    'yel blu';
     grid-gap: 10px;
-    border: 1px solid #121212;
-    background-color: #121212;
+    border: 1px solid white;
+    background-color: white;
     border-radius: 100%;
     width: 700px;
     height: 700px;
+    padding: 0;
 }
 
 .red{
     grid-area: red;    
-    background-color: #f45424;
-    border-top-left-radius: 100%;
+    background-color: #f25022;
+    border-top-right-radius: 100%;
     transition: 0.2s;    
 }
 .gre{
     grid-area: gre;    
-    background-color: #7cbc04;
-    border-top-right-radius: 100%;
-    transition: 0.2s;    
+    background-color: #7fba00;
+    border-top-left-radius: 100%;
+    transition: 0.2s;       
 }
 .blu{
     grid-area: blu;    
-    background-color: #04a4ec;
-    border-bottom-left-radius: 100%;
+    background-color: #00a4ef;
+    border-bottom-right-radius: 100%;
     transition: 0.2s;    
 }
 .yel{
     grid-area: yel;    
-    background-color: #fcbc04;
-    border-bottom-right-radius: 100%; 
+    background-color: #ffb900;
+    border-bottom-left-radius: 100%; 
     transition: 0.2s;   
 }
 
 .red:hover {
-    filter: brightness(120%);
+    filter: brightness(110%);
 }
 
 .gre:hover {
-    filter: brightness(120%);
+    filter: brightness(110%);
 }
 
 .blu:hover {
-    filter: brightness(120%);
+    filter: brightness(110%);
 }
 
 .yel:hover {
-    filter: brightness(120%);
+    filter: brightness(110%);
 }
 
 .selected{
-    filter: brightness(150%);
+    opacity: 0.8;
+}
+
+.notsel{
+    opacity: 1;
+}
+h1{
+    position: absolute;
+    font-size: 48px;
+    margin-left: 16px;
+    margin-top: 16px;
 }
